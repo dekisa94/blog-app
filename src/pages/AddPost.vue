@@ -1,7 +1,7 @@
 <template>
   <div class="container">
       <form @submit.prevent="submit" @reset="reset()">
-          <h2>Add new post</h2>
+          <h2>{{ this.$route.params.id ? 'Edit post' : 'Add new post'}}</h2>
           <div class="form-group">
                 <label for="title">Post title</label>
                 <input v-model="newPost.title" 
@@ -42,11 +42,27 @@ export default {
   },
   methods:{
       submit(){
-          postService.add(this.newPost)
-          this.$router.push('/posts')
+          if(this.$route.params.id)
+          {
+              postService.edit(this.$route.params.id, this.newPost)
+              this.$router.push('/posts')
+          }else
+          {
+            postService.add(this.newPost)
+            this.$router.push('/posts')
+          }
       },
       reset(){
           this.newPost= {}
+      }
+  },
+  created(){
+      if(this.$route.params.id)
+      {
+        postService.get(this.$route.params.id)
+        .then((response) => {
+            this.newPost=response.data
+        })
       }
   }
 }

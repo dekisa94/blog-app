@@ -3,6 +3,7 @@
       <ul class="list-group" v-for="(post, key) in posts" :key="key">
         <hr>
         <li class="list-group-item"><h3>{{post.title}}</h3></li>
+        <router-link class="btn btn-warning" :to="{name: 'edit-post', params: {id: post.id}}">Edit</router-link>
         <router-link class="btn btn-primary" :to="{name: 'single-post', params: {id: post.id}}">View Post</router-link>
         <hr>
       </ul>
