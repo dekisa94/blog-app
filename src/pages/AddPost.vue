@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-      <form @submit.prevent="submit">
+      <form @submit.prevent="submit" @reset="reset()">
           <h2>Add new post</h2>
           <div class="form-group">
                 <label for="title">Post title</label>
@@ -12,6 +12,7 @@
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-success" />
+                <input type="reset" class="btn btn-danger" />
             </div>
       </form>
   </div>
@@ -29,6 +30,9 @@ export default {
       submit(){
           postService.add(this.newPost)
           this.$router.push('/posts')
+      },
+      reset(){
+          this.newPost= {}
       }
   }
 }
