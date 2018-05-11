@@ -12,5 +12,9 @@ export default class PostService
     {
         return axios.get(`posts/${id}`)
     }
+    add(post)
+    {
+        return axios.post('posts', post)
+    }
 }
 export const postService = new PostService()
