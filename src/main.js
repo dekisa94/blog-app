@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import App from './App.vue'
-import Posts from './pages/Posts.vue'
+import AppPosts from './pages/AppPosts.vue'
 
 Vue.config.productionTip = false
 
 Vue.use(VueRouter)
 const routes = [
   {path: '/', redirect: '/posts'},
-  {path: '/posts', component: Posts, name: 'posts'}
+  {path: '/posts', component: AppPosts, name: 'posts'}
 ]
 const router = new VueRouter({
   routes,
