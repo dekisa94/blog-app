@@ -20,8 +20,7 @@
                     id="text" 
                     name="text" 
                     class="form-control" 
-                    pattern=".{,300}"   
-                    required title="300 characters maximum"
+
                 />
             </div>
             <div class="form-group">
