@@ -28,6 +28,10 @@ export default {
   methods:{
       submit(){
           postService.addComment(this.newComment, this.$route.params.id)
+          .then((response) => {
+              this.$emit('onComment')
+              this.newComment={}
+          })
       }
   }
 }
