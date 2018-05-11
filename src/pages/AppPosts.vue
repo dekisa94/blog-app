@@ -1,9 +1,11 @@
 <template>
   <div class="container">
-      <div v-for="(post, key) in posts" 
-      :key="key">
-      <h1>{{post.title}}</h1>
-      </div> 
+      <ul class="list-group" v-for="(post, key) in posts" :key="key">
+        <hr>
+        <li class="list-group-item"><h3>{{post.title}}</h3></li>
+        <router-link class="btn btn-primary" :to="{name: 'single-post', params: {id: post.id}}">View Post</router-link>
+        <hr>
+      </ul>
   </div>
 </template>
 
