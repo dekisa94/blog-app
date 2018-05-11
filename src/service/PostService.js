@@ -10,7 +10,7 @@ export default class PostService
     }
     get(id)
     {
-        return axios.get(`posts/${id}`)
+        return axios.get(`posts/${id}?filter={"include":["comments"]}`)
     }
     add(post)
     {
@@ -23,6 +23,10 @@ export default class PostService
     delete(id)
     {
         return axios.delete(`posts/${id}`)
+    }
+    addComment(comment, postId)
+    {
+        return axios.post(`posts/${postId}/comments`, comment)
     }
 }
 export const postService = new PostService()
